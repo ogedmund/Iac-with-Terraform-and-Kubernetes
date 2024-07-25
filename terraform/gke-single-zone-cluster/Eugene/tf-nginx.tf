@@ -32,7 +32,7 @@ resource "kubernetes_deployment" "nginx" {
       }
       spec {
         container {
-          image = "nginx:1.7.8"
+          image = "nginx:1.26.1"
           name  = "example"
 
           port {
@@ -41,7 +41,7 @@ resource "kubernetes_deployment" "nginx" {
 
           resources {
             limits = {
-              cpu    = "0.5"
+              cpu    = "500m"
               memory = "512Mi"
             }
             requests = {
