@@ -21,7 +21,7 @@ data "google_container_engine_versions" "gke_versions" {
 resource "google_container_cluster" "primary" {
   name               = "gke-standard-multi-zone"
   location           = var.region
-  node_locations     = ["${var.region}-a", "${var.region}-b", "${var.region}-c"]
+  node_locations     = ["${var.region}-b", "${var.region}-c", "${var.region}-d"]
   initial_node_count = var.gke_num_nodes
 
   network    = google_compute_network.vpc.name
