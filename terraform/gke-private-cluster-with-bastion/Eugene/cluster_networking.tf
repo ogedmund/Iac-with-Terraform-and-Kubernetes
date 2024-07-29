@@ -9,16 +9,16 @@ resource "google_compute_subnetwork" "subnet" {
   name          = "${var.project_id}-private-cluster-subnet"
   region        = var.region
   network       = google_compute_network.vpc.name
-  ip_cidr_range = cluster_subnets.gke_node_cidr
+  ip_cidr_range = "10.10.0.0/16"
 
   secondary_ip_range {
     range_name    = "pods-subnet"
-    ip_cidr_range = cluster_subnets.gke_pods_cidr
+    ip_cidr_range = "10.10.102.0/21"
   }
 
   secondary_ip_range {
     range_name    = "services-subnet"
-    ip_cidr_range = cluster_subnets.gke_svc_cidr
+    ip_cidr_range = "10.10.103.0/21"
   }
 
   depends_on = [google_compute_network.vpc, ]
