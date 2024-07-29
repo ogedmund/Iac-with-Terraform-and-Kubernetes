@@ -13,12 +13,12 @@ resource "google_compute_subnetwork" "subnet" {
 
   secondary_ip_range {
     range_name    = "pods-subnet"
-    ip_cidr_range = "10.10.102.0/21"
+    ip_cidr_range = "10.10.102.0/24"
   }
 
   secondary_ip_range {
     range_name    = "services-subnet"
-    ip_cidr_range = "10.10.103.0/21"
+    ip_cidr_range = "10.10.103.0/24"
   }
 
   depends_on = [google_compute_network.vpc, ]
