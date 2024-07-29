@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     google = {
-      source  = "hashicorp/google"
+      source = "hashicorp/google"
     }
 
     kubernetes = {
@@ -12,7 +12,7 @@ terraform {
 }
 
 provider "google" {
-  region      = "us-central1"
-  project     = "cn8001-k8s-terraform"
-  zone        = "us-central1-a"
+  region  = "us-central1"
+  project = "cn8001-k8s-terraform"
+  zone    = "us-central1-a"
 }

@@ -24,7 +24,7 @@ resource "google_compute_instance" "bastion" {
   network_interface {
     network    = google_compute_network.vpc.self_link
     subnetwork = google_compute_subnetwork.subnet.self_link
-    network_ip         = google_compute_address.my_internal_ip_addr.address
+    network_ip = google_compute_address.my_internal_ip_addr.address
   }
 }
 
@@ -32,7 +32,7 @@ resource "google_compute_instance" "bastion" {
 resource "google_compute_firewall" "rules" {
   project = "cn8001-k8s-terraform"
   name    = "allow-ssh"
-  network = google_compute_network.vpc.self_link 
+  network = google_compute_network.vpc.self_link
 
   allow {
     protocol = "tcp"

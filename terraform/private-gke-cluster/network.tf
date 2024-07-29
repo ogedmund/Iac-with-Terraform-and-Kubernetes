@@ -25,7 +25,7 @@ module "cloud-nat" {
   source     = "terraform-google-modules/cloud-nat/google"
   version    = "~> 1.2"
   project_id = "cn8001-k8s-terraform"
-  region     = "asia-south2"
+  region     = "us-central1"
   router     = google_compute_router.router.name
   name       = "nat-config"
 }
