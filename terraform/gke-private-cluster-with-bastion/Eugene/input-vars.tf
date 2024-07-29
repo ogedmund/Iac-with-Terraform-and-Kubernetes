@@ -1,6 +1,6 @@
 variable "project_id" {
   description = "GCP project id"
-  default     = "cn8001-iac-kubernetes-terra"
+  default     = "cn8001-k8s-terraform"
 }
 
 variable "region" {
