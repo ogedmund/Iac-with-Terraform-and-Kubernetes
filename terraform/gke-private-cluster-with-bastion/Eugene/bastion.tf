@@ -1,6 +1,6 @@
 resource "google_compute_instance" "bastion" {
   name         = "private-cluster-bastion"
-  machine_type = "t2a-standard-1"
+  machine_type = "e2-medium"
   zone         = "${var.region}-a"
   boot_disk {
     initialize_params {
