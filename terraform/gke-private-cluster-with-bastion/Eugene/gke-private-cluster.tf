@@ -2,7 +2,7 @@
 resource "google_container_cluster" "default" {
   name                = "gke-private-cluster"
   location            = var.region
-  initial_node_count  = 2
+  initial_node_count  = 1
   deletion_protection = false
 
   network    = google_compute_network.vpc.name

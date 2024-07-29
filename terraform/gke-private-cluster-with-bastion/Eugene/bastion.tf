@@ -4,7 +4,7 @@ resource "google_compute_instance" "bastion" {
   zone         = "${var.region}-a"
   boot_disk {
     initialize_params {
-      image = "Debian GNU/Linux 12 (bookwork)"
+      image = "debian-cloud/debian-12"
     }
   }
   network_interface {
@@ -34,7 +34,7 @@ resource "google_compute_firewall" "allow_http_https_rdp" {
     ports    = ["80", "443", "3389"]
   }
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["allow_http_https_rdp"]
+  target_tags   = ["allow-http-https-rdp"]
 }
 
 # Service accounts for bastion host
