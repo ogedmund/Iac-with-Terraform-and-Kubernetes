@@ -1,5 +1,5 @@
 resource "google_compute_instance" "bastion" {
-  name         = "${var.project_id}-jumpbox"
+  name         = "private-cluster-bastion"
   machine_type = "t2a-standard-1"
   zone         = "${var.region}-a"
   boot_disk {
