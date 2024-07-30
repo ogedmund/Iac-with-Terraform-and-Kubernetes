@@ -6,6 +6,7 @@ resource "google_container_cluster" "primary" {
   subnetwork               = google_compute_subnetwork.subnet.name
   remove_default_node_pool = true ## Create the smallest possible default node pool and immediately delete it. 
   initial_node_count       = 1
+  deletion_protection      = false
 
   private_cluster_config {
     enable_private_endpoint = true
