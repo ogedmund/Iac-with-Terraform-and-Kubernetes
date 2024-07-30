@@ -1,4 +1,4 @@
-## Create bastion host . We will allow this bastion host to access GKE cluster
+# Static IP address within created subnet range for bastion host. This will allow sole access to the private cluster
 resource "google_compute_address" "my_internal_ip_addr" {
   project      = "cn8001-k8s-terraform"
   address_type = "INTERNAL"
@@ -9,6 +9,7 @@ resource "google_compute_address" "my_internal_ip_addr" {
   description  = "An internal IP address for the bastion host"
 }
 
+# Bastion host [Debian 12 VM instance]
 resource "google_compute_instance" "bastion" {
   project      = "cn8001-k8s-terraform"
   zone         = "us-central1-a"
@@ -28,7 +29,7 @@ resource "google_compute_instance" "bastion" {
   }
 }
 
-## Creare Firewall to access jump host via iap
+# Firewall rule to allow SSH into bastion
 resource "google_compute_firewall" "rules" {
   project = "cn8001-k8s-terraform"
   name    = "allow-ssh"
@@ -41,13 +42,13 @@ resource "google_compute_firewall" "rules" {
   source_ranges = ["0.0.0.0/0"]
 }
 
-## Create Service Account
+# Service Account
 resource "google_service_account" "bastion_sa" {
   account_id   = "bastion-sa"
   display_name = "Service Account for GKE nodes"
 }
 
-## Create IAP SSH permissions for your test instance
+# IAP SSH permissions for bastion host
 resource "google_project_iam_member" "project" {
   project = "cn8001-k8s-terraform"
   role    = "roles/iap.tunnelResourceAccessor"

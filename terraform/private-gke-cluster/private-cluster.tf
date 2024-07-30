@@ -1,12 +1,11 @@
-# Create GKE cluster with 2 nodes in our custom VPC/Subnet
+# Private GKE Cluster
 resource "google_container_cluster" "primary" {
   name                     = "private-cluster"
   location                 = "us-central1-a"
   network                  = google_compute_network.vpc.name
   subnetwork               = google_compute_subnetwork.subnet.name
-  remove_default_node_pool = true ## create the smallest possible default node pool and immediately delete it.
-  # networking_mode          = "VPC_NATIVE" 
-  initial_node_count = 1
+  remove_default_node_pool = true ## Create the smallest possible default node pool and immediately delete it. 
+  initial_node_count       = 1
 
   private_cluster_config {
     enable_private_endpoint = true
@@ -24,11 +23,10 @@ resource "google_container_cluster" "primary" {
       cidr_block   = "10.0.0.7/32"
       display_name = "net1"
     }
-
   }
 }
 
-# Create managed node pool
+# Managed Node Pool with 2 nodes
 resource "google_container_node_pool" "primary_nodes" {
   name       = google_container_cluster.primary.name
   location   = "us-central1-a"
