@@ -5,4 +5,4 @@ This repository is a sample application for users following the getting started 
 The application is based on the application from the getting started tutorial at https://github.com/docker/getting-started
 
 
-!See Docker Architectural Diagram(https://github.com/ogedmund/Iac-with-Terraform-and-Kubernetes/blob/main/docker/docker.png/blob/main/docker.png?raw=true)
+!See Docker Architectural Diagram(https://github.com/ogedmund/Iac-with-Terraform-and-Kubernetes/blob/main/docker.png?raw=true)
