@@ -15,4 +15,4 @@ Terraform configurations are written in HCL or JSON and typically consist of one
 To configure Terraform for **Google Kubernetes Engine (GKE)**, you need to set up the Google Cloud provider and define the necessary resources. A standard GKE Terraform configuration includes Provider Configuration: to define the Google Cloud provider and authentication. Resource Definitions specify the resources for the GKE cluster, node pools, and networking. Outputs highlighting cluster credentials 
 
 
-![TF-diagram](./Tf_diagram.jpg)
+![TF-diagram](./Tf_diagram.png)
