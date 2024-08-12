@@ -1,5 +1,5 @@
 # Overview of Terraform
-**(Terraform)** is an open-source IaC tool developed by HashiCorp. It allows users to define and provision data center infrastructure using a high-level configuration language called HashiCorp Configuration Language (HCL) or optionally JSON. Terraform manages external resources like public and private cloud infrastructure, network appliances, software as a service, and platform as a service through a provider-based architecture. It maintains the state of the managed infrastructure, enabling incremental changes.
+**Terraform** is an open-source IaC tool developed by HashiCorp. It allows users to define and provision data center infrastructure using a high-level configuration language called HashiCorp Configuration Language (HCL) or optionally JSON. Terraform manages external resources like public and private cloud infrastructure, network appliances, software as a service, and platform as a service through a provider-based architecture. It maintains the state of the managed infrastructure, enabling incremental changes.
 
 Terraform is one of the leading IaC tools in production due to its Multi-Provider Support, Idempotency, Modularity, Community, and Ecosystem.
 
