@@ -26,3 +26,16 @@ While this is not an exhaustive list of all possible Kubernetes components, they
 
 
 ![See K8s Architectural Diagram](https://github.com/ogedmund/Iac-with-Terraform-and-Kubernetes/blob/main/kubernetes/K8s.png?raw=true)
+
+
+
+# How do you run applications on Kubernetes?
+There are three different ways you can schedule your application on a Kubernetes cluster. In all three, your application Docker containers are packaged as a [Pod](https://kubernetes.io/docs/concepts/workloads/pods/), which are the smallest deployable unit in Kubernetes, and represent one or more Docker containers that are tightly coupled. Containers in a Pod share certain elements of the kernel space that are traditionally isolated between containers, such as the network space (the containers both share an IP and thus the available ports are shared), IPC namespace, and PIDs in some cases.
+
+Pods are considered to be relatively ephemeral disposable entities in the Kubernetes ecosystem. This is because Pods are designed to be mobile across the cluster so that you can design a scalable fault tolerant system. As such, Pods are generally scheduled with [Controllers](https://kubernetes.io/docs/concepts/workloads/pods/#pods-and-controllers) that manage the lifecycle of a Pod. Using Controllers, you can schedule your Pods as:
+
+- Jobs, which are Pods with a controller that will guarantee the Pods run to completion.
+- Deployments behind a Service, which are Pods with a controller that implement lifecycle rules to provide replication and self-healing capabilities. Deployments will automatically reprovision failed Pods, or migrate Pods to healthy nodes off of failed nodes. A Service constructs a consistent endpoint that can be used to access the Deployment.
+- Daemon Sets, which are Pods that are scheduled on all worker nodes. Daemon Sets schedule exactly one instance of a Pod on each node. Like Deployments, Daemon Sets will reprovision failed Pods and schedule new ones automatically on new nodes that join the cluster.
+
+
