@@ -7,7 +7,7 @@ Terraform is one of the leading IaC tools in production due to its Multi-Provide
 Terraform configurations are written in HCL or JSON and typically consist of one or more files ending in .tf. These files define the infrastructure resources and their properties. Common Commands and Workflows are:
 
 + *Terraform init*: Initializes a working directory containing Terraform configuration files.
-+ *Terraform plan*: Create an execution plan, showing what actions Terraform will take
++ *Terraform plan*: Create an execution plan, showing what actions Terraform will take.
 + *Terraform apply*: Applies the changes required to reach the desired state of the configuration.
 + *Terraform destroy*: Destroys all managed infrastructure. 
 
